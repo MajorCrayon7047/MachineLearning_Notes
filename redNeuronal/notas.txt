@@ -1,0 +1,34 @@
+Todas las redes neronales se componen de capas, siempre tienen entrada y salida pero pueden haber capas "ocultas"
+las neuronas se conectan con conexiones con su propio peso que representa su importancia entre las demas conexiones
+Cada neurona tiene un sesgo que es un valor importante
+
+En un ejemplo donde se quiere pasar de farenhein a celcius utilizamos 2 capas la de entrada y la de salida,
+primero se asigna un peso random a la conexion y un valor random al sesgo de la neurona de salida,
+despues ese peso de conexion se multiplica por el valor de entrada en (celsius) y por ultimo se suma el sesgo de
+la neurona de salida
+
+Funcion de activacion:
+    Las redes neuronales Densas en capas son lineales, para que dejen de serlas una vez que una neurona suma su sesgo y
+    va a dar su resultado la pasaremos por una funcion de activacion
+
+Redes neuronales Convolucionales:
+    Es basada en caracteristicas.
+    Se diferencia que hay capas de convolucion y capa de agrupacion que extrane las caracteristicas y se la dan a la red normal
+    Capa de convolucion:
+        En imagenes se agarran matrices para encontrar patrones/ejes pueden ser de 3x3 y se llaman Nucleo(Kernel)
+
+    Capa de agrupacion:
+        Agrupa la informacion de la otra capa y depender menos del tamaño y posicion de las cosas en la imagenen
+        Objetivos:
+            - Reducir el tamaño de la imagen
+            - Resaltar las caracteristicas mas interesantes
+        Ej. AGRUPACION MAXIMA: Una matriz se desplaza por una imagen ya convolucionada a base de zancas configurables y
+        toma el mayor valor de pixel de la matriz, lo guarda en otra y sigue desplazandose
+        """
+        tf.keras.layers.Conv2D(32,    #primer parametro son la cantidad de nucleos pára procesar la imagen
+                       (3,3), #EL tamaño de los nucleos
+                       input_shape=(28, 28, 1) #Tamaño de imagen y numeros de canales (en b&n es 1)
+                       )
+        #Una capa de convolucion ajusta el valor de las casillas del nucleo de forma aleatoria
+        #Si fuera rgb habrian 3 canales y hacen las convoluciones de forma separada y despues se unen
+        """
